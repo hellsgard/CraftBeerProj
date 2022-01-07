@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const lizardRoutes = require('./routes/lizardRoutes.js');
+const beerRoutes = require('./routes/beerRoutes.js');
 
 const mongoose = require('mongoose');
 
@@ -8,6 +8,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+app.use((req, res, next) => {
+    console.log(new Date);
+    next();
+});
 
 mongoose.connect('mongodb+srv://root:root@cluster0.vtwju.mongodb.net/beers_database/beers', {useNewUrlParser: true}, 
 (error) => {
