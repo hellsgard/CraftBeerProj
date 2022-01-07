@@ -1,4 +1,5 @@
 
+
 const router = require('express').Router();
 
 const { Beer } = require('../persistence/models/beer');
@@ -12,6 +13,16 @@ router.get("/getAll", (req, res) => {
     });
     console.log("get all accessed");
 });
+
+const router = require('express').Router();
+
+const {Beer} = require('../persistence/models/beer');
+
+router.get('/get/:id', (req, res) => {
+    Beer.findById(req.params.id, (error, lizard) => {
+        res.status(200).send(lizard);
+    })
+})
 
 router.post('/post', (req, res) => {
     const body = req.body;
@@ -35,3 +46,4 @@ router.put('/update/:id', (req, res) => {
 
 
 module.exports = router;
+
