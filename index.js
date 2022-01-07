@@ -20,3 +20,7 @@ mongoose.connect('mongodb+srv://root:root@cluster0.vtwju.mongodb.net/beers_datab
 
 app.use('/beer', beerRoutes);
 
+const server = app.listen(5015, () => {
+    console.log(`server started on port 5015`);
+});
+
