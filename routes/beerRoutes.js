@@ -33,7 +33,7 @@ router.post('/post', (req, res) => {
     const body = req.body;
     const beer = new Beer(req.body);
     beer.save().then((result) => {
-        res.status(201).send(`${result.beer_Name} has been added to database`);
+        res.status(201).send(`${result.beer_name} has been added to database`);
     });  
 });
 

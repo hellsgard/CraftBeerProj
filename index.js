@@ -14,7 +14,7 @@ app.use((req, res, next) => {
     next();
 });
 
-mongoose.connect('mongodb+srv://root:root@cluster0.vtwju.mongodb.net/beers_database/beers', {useNewUrlParser: true}, 
+mongoose.connect('mongodb+srv://root:root@cluster0.vtwju.mongodb.net/beers_db', {useNewUrlParser: true}, 
 (error) => {
     if(error) {
         console.log("Cant connect to DB :(");
