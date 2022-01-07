@@ -6,7 +6,7 @@ router.get("/getAll", (req, res) => {
     // Using the lizard model we imported, use the .find() function
     // .find() returns ALL DATA
     // pass in error first to access the data
-    beer.find((error, beer) => {
+    Beer.find((error, beer) => {
         res.status(200).send(beer);
     });
     console.log("get all accessed");
