@@ -19,12 +19,12 @@ router.get('/get/:id', (req, res) => {
 });
 
 router.put('/update/:id', (req, res) => {
-    Beer.findByIdAndUpdate(req.params.id, req.body, (error, beer) => {
+    Beer.findByIdAndUpdate(req.params.id, req.body, {new : true}, (error, beer) => {
         if(error) {
             console.log(error);
         }
         else {
-            res.status(202).send(`updated ${beer}.`);
+            res.status(202).send(`updated ${beer}.`)
         }
     })
 });
@@ -32,7 +32,7 @@ router.put('/update/:id', (req, res) => {
 router.post('/post', (req, res) => {
     const body = req.body;
     const beer = new Beer(req.body);
-    Beer.save().then((result) => {
+    beer.save().then((result) => {
         res.status(201).send(`${result.beer_name} has been added to database`);
     });  
 });
